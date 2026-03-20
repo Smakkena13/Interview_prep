@@ -45,7 +45,7 @@ public class D4_MouseActions {
         WebElement b1= driver.findElement(By.xpath("(//span[@class='ui-slider-handle ui-corner-all ui-state-default'])[1]"));
         System.out.println(b1.getLocation());
         at.dragAndDropBy(b1,60,0).perform();
-        at.dragAndDropBy(b1,-60,0).perform();
+        //at.dragAndDropBy(b1,-60,0).perform();
         System.out.println(b1.getLocation());
 
 //        right-click
