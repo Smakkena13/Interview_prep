@@ -15,6 +15,7 @@ public class D1_locators {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
+        System.out.println("these are locators");
 
         //id
         driver.findElement(By.id("name")).sendKeys("msk");
