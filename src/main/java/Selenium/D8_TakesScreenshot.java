@@ -13,6 +13,7 @@ public class D8_TakesScreenshot {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
+        //full page
         TakesScreenshot ts= (TakesScreenshot) driver;
         File source=ts.getScreenshotAs(OutputType.FILE);
         File target=new File(System.getProperty("user.dir")+"\\screenshots\\two.png");
