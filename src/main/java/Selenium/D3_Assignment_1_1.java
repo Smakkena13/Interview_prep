@@ -6,9 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 
-public class D3_Assignment_1 {
+public class D3_Assignment_1_1 {
     public static void main(String[] args) {
         WebDriver driver=new ChromeDriver();
         driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
@@ -16,18 +17,26 @@ public class D3_Assignment_1 {
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
 
+        String itemReq[]={"Cucumber","Tomato","Brinjal"};
+
         List<WebElement> veggies=driver.findElements(By.xpath("//h4[@class='product-name']"));
         System.out.println("total veggies:- "+veggies.size());
 
         int count=0;
-        for(int i=0;i<30;i++){
-            String veg=veggies.get(i).getText();
-            System.out.println("item:- "+veg);
-            if(veg.contains("Brocolli") || veg.contains("Cucumber") || veg.contains("Beetroot") || veg.contains("Walnuts")){
+        for(int i=0;i<veggies.size();i++){
+            String veg=veggies.get(i).getText(); //Brocolli - 1 Kg
+            String a[]=veg.split("-"); //Brocolli // 1 Kg
+            String vegName=a[0].trim(); //Brocolli
+
+            List wantedItems = Arrays.asList(itemReq);
+
+            if(wantedItems.contains(vegName)){
                 count++;
-                driver.findElement(By.xpath("(//div[@class='product-action']//button)["+i+"+1]")).click();
+                List<WebElement> buttons=driver.findElements(By.xpath("//div[@class='product-action']//button"));
+                buttons.get(i).click();
             }
-            if(count==4){
+
+            if(count== itemReq.length){
                 break;
             }
         }
