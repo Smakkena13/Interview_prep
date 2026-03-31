@@ -12,29 +12,15 @@ import org.testng.annotations.*;
 
 import java.time.Duration;
 
-public class D11_DataProviders {
+public class D12_test {
     WebDriver driver;
-
     @BeforeClass
-    @Parameters({"browser","url"})
-    void setUp(String br,String url){
-        switch(br.toLowerCase()){
-            case "chrome": driver=new ChromeDriver();
-            break;
-            case "edge": driver=new EdgeDriver();
-            break;
-            case "firefox": driver=new FirefoxDriver();
-            break;
-            default:
-                System.out.println("invalid browser");
-                return;
-        }
-
-        driver.get(url);
+    void setUp(){
+        driver=new ChromeDriver();
+        driver.get("https://tutorialsninja.com/demo/index.php?route=account/login");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
-
     @Test(dataProvider="dp")
     void login(String email,String pwd){
         JavascriptExecutor js= (JavascriptExecutor) driver;
@@ -57,7 +43,7 @@ public class D11_DataProviders {
         driver.findElement(By.xpath("(//a[text()='Login'])[2]")).click();
     }
 
-    @DataProvider(name="dp",indices={3})
+    @DataProvider(name="dp",indices={0,3})
     Object[][] logindata(){
         Object data[][]={
                 {"msk@gmail.com","msk"},

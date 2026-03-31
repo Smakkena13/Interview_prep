@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="musuite" parallel="tests" thread-count="3">
+
+    <test name="mytest1">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="url" value="https://tutorialsninja.com/demo/index.php?route=account/login"/>
+        <classes>
+            <class name="TestNg.D11_DataProviders"/>
+        </classes>
+    </test>
+    <test name="mytest2">
+        <parameter name="browser" value="edge"/>
+        <parameter name="url" value="https://tutorialsninja.com/demo/index.php?route=account/login"/>
+        <classes>
+            <class name="TestNg.D11_DataProviders"/>
+        </classes>
+    </test>
+<!--    <test name="mytest3">-->
+<!--        <parameter name="browser" value="firefox"/>-->
+<!--        <classes>-->
+<!--            <class name="TestNg.D11_DataProviders"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>

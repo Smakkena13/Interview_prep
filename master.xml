@@ -2,10 +2,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="musuite">
+    <listeners>
+<!--        <listener class-name="TestNg.D12_Listners"/>-->
+        <listener class-name="Utility.extentReports_listner_cls"/>
+    </listeners>
 
     <test name="mytest">
         <classes>
-            <class name="TestNg.D11_test"/>
+            <class name="TestNg.D12_test"/>
         </classes>
     </test>
 </suite>
