@@ -1,5 +1,6 @@
 package ApachePOI;
 
+import Utility.ExcelUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -26,7 +27,7 @@ public class Data_Driven_2 {
         js.executeScript("arguments[0].scrollIntoView()",e);
 
         String file=System.getProperty("user.dir")+"\\testData\\citibank.xlsx";
-        int rows=ExcelUtils.getRowCount(file,"Sheet1");
+        int rows= ExcelUtils.getRowCount(file,"Sheet1");
 
         for(int r=1;r<=rows;r++){
             String indepam=ExcelUtils.getCellData(file,"Sheet1",r,0);
