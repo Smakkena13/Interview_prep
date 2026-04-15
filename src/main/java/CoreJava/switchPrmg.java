@@ -27,5 +27,7 @@ public class switchPrmg {
              default:
                  System.out.println("no number is selected");
         }
+        System.out.println("done");
+        System.out.println("done2");
     }
 }
