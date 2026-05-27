@@ -21,6 +21,8 @@ public class mouseAct {
 
         //mouse hover
         Actions at=new Actions(driver);
+//        at.scrollToElement(e1);
+        at.scrollByAmount(0,500);
         at.moveToElement(e1).moveToElement(e2).click().perform();
 
         //double click
@@ -50,6 +52,7 @@ public class mouseAct {
         System.out.println(min.getLocation());
         System.out.println(min.getLocation().getX());
 
+        at.contextClick(min).perform();
 
     }
 }
