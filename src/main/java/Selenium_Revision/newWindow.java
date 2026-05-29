@@ -14,9 +14,19 @@ public class newWindow {
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-        driver.switchTo().newWindow(WindowType.TAB);
-//        driver.switchTo().newWindow(WindowType.WINDOW);
+        //on parent window
+        System.out.println("1st: "+driver.getTitle());
+        String pid=driver.getWindowHandle();
+        System.out.println("parent id: "+pid);
+
+        driver.switchTo().newWindow(WindowType.TAB);  //WINDOW
         driver.get("https://rahulshettyacademy.com/loginpagePractise/");
+        //on child window
+        System.out.println("child: "+driver.getTitle());
+
+        //go back to parent
+        driver.switchTo().window(pid);
+        System.out.println("2nd: "+driver.getTitle());
 
 
     }
