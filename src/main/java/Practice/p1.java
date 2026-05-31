@@ -10,68 +10,53 @@ import java.util.List;
 
 public class p1 {
     public static void main(String[] args) {
-        WebDriver driver=new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.get("https://testautomationpractice.blogspot.com/");
-        driver.manage().window().maximize();
-        JavascriptExecutor js=(JavascriptExecutor) driver;
+        //find maximum
+        int a[]={12,4,56,3,7};
+        int max=a[0];
 
-        System.out.println(driver.getTitle());
-        driver.findElement(By.id("name")).sendKeys("apc");
-
-
-        WebElement drp=driver.findElement(By.id("country"));
-        Select sc=new Select(drp);
-        List<WebElement> o= sc.getOptions();
-        for(WebElement p:o){
-            System.out.println(p.getText());
-        }
-        sc.selectByVisibleText("Japan");
-        System.out.println(sc.getFirstSelectedOption().getText());
-        sc.selectByIndex(0);
-        System.out.println(sc.getFirstSelectedOption().getText());
-
-        WebElement drp1= driver.findElement(By.id("colors"));
-        Select sc1=new Select(drp1);
-        js.executeScript("arguments[0].scrollTop += 200;", drp1);
-        sc1.selectByValue("blue");
-        sc1.selectByIndex(5);
-
-        //checkboxws
-        List<WebElement> chcks= driver.findElements(By.xpath("//div[@class='form-check form-check-inline'] //input[@type='checkbox']"));
-        System.out.println("no of checkbox: "+chcks.size());
-        //click all
-//        for(WebElement cb:chcks){
-//            cb.click();
-//        }
-
-        //1st 3
-//        for(int i=0;i<3;i++){
-//            chcks.get(i).click();
-//        }
-
-        //last 3
-        int first=chcks.size()-3;
-        for(int i=first;i<chcks.size();i++){
-            chcks.get(i).click();
-        }
-
-
-        /*
-        WebElement e=driver.findElement(By.linkText("Udemy Courses"));
-        Actions at=new Actions(driver);
-        at.keyDown(Keys.CONTROL).click(e).keyUp(Keys.CONTROL).perform();
-
-        //autosuggestive drp down
-        driver.findElement(By.id("Wikipedia1_wikipedia-search-input")).sendKeys("selenium");
-        driver.findElement(By.className("wikipedia-search-button")).click();
-
-        List<WebElement> options=driver.findElements(By.xpath("//div[@id='Wikipedia1_wikipedia-search-results']//div//a"));
-        for(WebElement op:options){
-            if(op.getText().equalsIgnoreCase("Selenium dioxide")){
-                op.click();
+        for(int r:a){
+            if(r>max){
+                max=r;
             }
-        }*/
+        }
+        System.out.println("max: "+max);
+
+        //reverse array
+        int b[]={1, 2, 3, 4, 5};
+        for(int i=b.length-1;i>=0;i--){
+            System.out.print(b[i]+" ");
+        }
+        System.out.println();
+
+        //find sum
+        int c[]={10, 20, 30, 40, 50};
+        int sum=0;
+        for(int res:c){
+            sum=sum+res;
+        }
+        System.out.println(sum);
+
+        //find missing
+        int d[]={1, 2, 4, 5, 6};
+        int n=d.length+1;
+        int expsum=(n*(n+1))/2;
+
+        int actsum=0;
+        for(int q:d){
+            actsum+=q;
+        }
+        int missing=expsum-actsum;
+        System.out.println(missing);
+
+        //find duplicates
+        int z[]={1, 2, 3, 2, 4, 3, 5};
+        for(int o=0;o<z.length;o++){
+            for(int j=o+1;j<z.length;j++){
+                if(z[o]==z[j]){
+                    System.out.print("duplicate: "+z[o]+" ");
+                }
+            }
+        }
 
     }
 }
