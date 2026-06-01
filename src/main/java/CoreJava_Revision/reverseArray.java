@@ -13,6 +13,7 @@ public class reverseArray {
         }
 
         System.out.println("======================");
+
         Integer b[]={23,4,56,13,25,64,83,6};
         ArrayList<Integer> al=new ArrayList<Integer>(Arrays.asList(b));
         Collections.reverse(al);
